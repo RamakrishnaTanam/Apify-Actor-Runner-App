@@ -4,9 +4,9 @@ A full-stack web application that demonstrates integration with the [Apify platf
 
 ---
 
-## 🚀 Features
+##  Features
 
-### ✅ Frontend
+###  Frontend
 - **API Key Authentication** – Securely authenticate with your personal Apify API key
 - **Browse Actors** – List and select your available actors dynamically
 - **Dynamic Form Generation** – Automatically generate input forms based on actor schema
@@ -14,14 +14,14 @@ A full-stack web application that demonstrates integration with the [Apify platf
 - **Results Viewer** – Display execution results and datasets
 - **Error Handling** – Graceful error messages for network or API failures
 
-### 🛠️ Backend
+###  Backend
 - **API Proxy** – Securely proxies all requests to the Apify platform
 - **Rate Limiting & CORS** – Protects backend and allows frontend interaction
 - **Environment-Based Setup** – Easily configurable for different environments
 
 ---
 
-## 🧪 Actor Used for Testing
+##  Actor Used for Testing
 
 **Chosen Actor:** [`apify/website-content-crawler`](https://apify.com/apify/website-content-crawler)
 
@@ -29,7 +29,7 @@ This actor is used to crawl and extract structured content from websites.
 
 ---
 
-## 📌 Assumptions & Design Choices
+##  Assumptions & Design Choices
 
 - **Actor Schema Assumption:** Assumes each actor has a valid `inputSchema` returned by the Apify API.
 - **Authentication Simplicity:** Uses direct API Key authentication (no OAuth) for simplicity and security in testing.
@@ -41,20 +41,20 @@ This actor is used to crawl and extract structured content from websites.
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
-### 🔐 API Key Login
+###  API Key Login
 ![API Key Login](./screenshots/Screenshot%20(101).png)
 
-### 🎭 Actor List & Selection
+###  Actor List & Selection
 ![No Actors Loaded](./screenshots/Screenshot%20(102).png)
 
-### 🟢 Actor Run & Output
+###  Actor Run & Output
 ![Website Content Crawler Actor](./screenshots/Screenshot%20(103).png)
 
 ---
 
-## 🛠️ Installation & Running the Application
+##  Installation & Running the Application
 
 ### 📦 Prerequisites
 
@@ -64,8 +64,62 @@ This actor is used to crawl and extract structured content from websites.
 
 ---
 
-### 🧑‍💻 Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/RamakrishnaTanam/Apify-Actor-Runner-App.git
 cd Apify-Actor-Runner-App
+
+Installation & Setup
+
+📦 Prerequisites
+
+Node.js (v16+)
+
+npm or yarn
+
+Apify API Key (from apify.com)
+
+## Clone the Repository
+
+git clone https://github.com/RamakrishnaTanam/Apify-Actor-Runner-App.git
+cd Apify-Actor-Runner-App
+
+📥 Install Dependencies
+
+Frontend:
+
+npm install
+
+Backend:
+
+cd server
+npm install
+cd ..
+
+⚙️ Setup Environment
+
+Copy the example environment files and configure your API key:
+
+cp .env.example .env
+cp server/.env.example server/.env
+
+Then open server/.env and set your APIFY_API_KEY value.
+
+🧪 Run in Development
+
+Start both the frontend and backend in development mode:
+
+npm run dev: full
+
+Alternatively, you can run them separately:
+
+Frontend:
+
+npm run dev
+
+Backend:
+
+npm run dev: server
+
+Visit:http://localhost:5173
