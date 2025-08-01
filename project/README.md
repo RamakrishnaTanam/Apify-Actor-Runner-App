@@ -1,151 +1,71 @@
-# Apify Platform Integration
+# Apify Actor Runner App
 
-A full-stack web application that demonstrates integration with the Apify platform, allowing users to authenticate, browse their actors, view schemas dynamically, and execute actor runs with real-time results.
+A full-stack web application that demonstrates integration with the [Apify platform](https://apify.com), allowing users to authenticate with their API key, select available actors, dynamically render their schemas, execute actor runs, and view results in real time.
 
-## Features
+---
 
-### Frontend
-- **Authentication**: Secure API key-based authentication with Apify
-- **Actor Management**: Browse and search through available actors
-- **Dynamic Schema Loading**: Fetch and render actor input schemas at runtime
-- **Form Generation**: Automatically generate forms based on actor schemas
-- **Real-time Execution**: Execute actors and monitor progress with live updates
-- **Results Visualization**: Display execution results with export capabilities
-- **Error Handling**: Comprehensive error handling with user-friendly messages
+## 🚀 Features
 
-### Backend
-- **Secure API Proxy**: Secure communication with Apify's API
-- **Rate Limiting**: Protection against abuse with request rate limiting
-- **CORS Configuration**: Proper cross-origin resource sharing setup
-- **Error Handling**: Centralized error handling and logging
-- **Health Monitoring**: Health check endpoints for monitoring
+### ✅ Frontend
+- **API Key Authentication** – Securely authenticate with your personal Apify API key
+- **Browse Actors** – List and select your available actors dynamically
+- **Dynamic Form Generation** – Automatically generate input forms based on actor schema
+- **Actor Execution** – Run actors in real time and poll for completion
+- **Results Viewer** – Display execution results and datasets
+- **Error Handling** – Graceful error messages for network or API failures
 
-## Architecture
+### 🛠️ Backend
+- **API Proxy** – Securely proxies all requests to the Apify platform
+- **Rate Limiting & CORS** – Protects backend and allows frontend interaction
+- **Environment-Based Setup** – Easily configurable for different environments
 
-### Frontend (React + TypeScript + Tailwind CSS)
-- **Components**: Modular, reusable React components
-- **Services**: API client for backend communication
-- **State Management**: React hooks for local state management
-- **Styling**: Tailwind CSS for responsive, modern UI
+---
 
-### Backend (Node.js + Express)
-- **API Routes**: RESTful API endpoints for Apify integration
-- **Security**: Helmet, CORS, and rate limiting middleware
-- **Validation**: Request validation and sanitization
-- **Error Handling**: Comprehensive error handling middleware
+## 🧪 Actor Used for Testing
 
-## Getting Started
+**Chosen Actor:** [`apify/website-content-crawler`](https://apify.com/apify/website-content-crawler)
 
-### Prerequisites
-- Node.js 16+ 
+This actor is used to crawl and extract structured content from websites.
+
+---
+
+## 📌 Assumptions & Design Choices
+
+- **Actor Schema Assumption:** Assumes each actor has a valid `inputSchema` returned by the Apify API.
+- **Authentication Simplicity:** Uses direct API Key authentication (no OAuth) for simplicity and security in testing.
+- **Dynamic Form Rendering:** The form is dynamically generated based on the actor's input schema (supports strings, booleans, enums).
+- **Polling Strategy:** Uses a polling approach to wait for the actor run to finish and fetch results immediately.
+- **Minimal Dependencies:** Keeps the tech stack minimal using only essential packages (React, TailwindCSS, Node.js, Express).
+- **Error Tolerance:** UI is designed to catch and display common API and network errors clearly to the user.
+- **No Local Storage:** The API key is stored in memory (not persisted across sessions) for security.
+
+---
+
+## 📸 Screenshots
+
+### 🔐 API Key Login
+![API Key Login](./screenshots/Screenshot%20(101).png)
+
+### 🎭 Actor List & Selection
+![No Actors Loaded](./screenshots/Screenshot%20(102).png)
+
+### 🟢 Actor Run & Output
+![Website Content Crawler Actor](./screenshots/Screenshot%20(103).png)
+
+---
+
+## 🛠️ Installation & Running the Application
+
+### 📦 Prerequisites
+
+- Node.js (v16+)
 - npm or yarn
-- Apify API key
+- Apify API Key (from [apify.com](https://my.apify.com/account#/integrations))
 
-### Installation
+---
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd apify-integration
-   ```
-
-2. **Install frontend dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Install backend dependencies**
-   ```bash
-   cd server
-   npm install
-   cd ..
-   ```
-
-4. **Environment Setup**
-   ```bash
-   # Copy environment files
-   cp .env.example .env
-   cp server/.env.example server/.env
-   
-   # Edit .env files with your configuration
-   ```
-
-### Development
-
-**Start both frontend and backend:**
-```bash
-npm run dev:full
-```
-
-**Or start them separately:**
-
-Frontend only:
-```bash
-npm run dev
-```
-
-Backend only:
-```bash
-npm run dev:server
-```
-
-The application will be available at:
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:3001
-
-### Production Build
+### 🧑‍💻 Clone the Repository
 
 ```bash
-npm run build
-```
-
-## API Endpoints
-
-### Authentication
-All API endpoints require an Apify API key passed as a Bearer token in the Authorization header.
-
-### Endpoints
-
-- `GET /api/apify/actors` - Get user's actors
-- `GET /api/apify/actors/:actorId/schema` - Get actor input schema
-- `POST /api/apify/actors/:actorId/runs` - Start actor run
-- `GET /api/apify/runs/:runId` - Get run details
-- `GET /api/apify/runs/:runId/dataset` - Get run dataset
-- `GET /api/apify/runs/:runId/wait` - Wait for run completion
-- `GET /health` - Health check
-
-## Security Features
-
-- **API Key Protection**: API keys are handled server-side only
-- **Rate Limiting**: Prevents API abuse
-- **CORS Configuration**: Restricts cross-origin requests
-- **Input Validation**: Validates and sanitizes all inputs
-- **Error Sanitization**: Prevents information leakage in errors
-
-## Technology Stack
-
-### Frontend
-- React 18
-- TypeScript
-- Tailwind CSS
-- Vite
-- Lucide React (icons)
-
-### Backend
-- Node.js
-- Express.js
-- CORS
-- Helmet (security)
-- Express Rate Limit
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## License
-
-MIT License - see LICENSE file for details
+git clone https://github.com/RamakrishnaTanam/Apify-Actor-Runner-App.git
+cd Apify-Actor-Runner-App
